@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    background-color: rgba(0, 60, 109, 0.911);
+}
+img{
+    height: 125px;
+    width: 125px;
+}
+.container{
+    height: 500px;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.logoAndTemp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+}
+.logoAndTemp > *{
+    margin: 40px;
+}
+.information > *{
+    margin: 40px;
+}

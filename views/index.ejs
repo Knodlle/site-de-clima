@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Weather</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logoAndTemp">
+            <%
+            let img
+            if (climaCodigo === 0 && isDay === 1) {
+                img = "sun.svg"
+            }else if(climaCodigo === 0 && isDay === 0){
+                img = "noite.svg"
+            }else if(climaCodigo === 1 || climaCodigo === 2 || climaCodigo === 3){
+                if(isDay===1){
+                    img = "nublado.svg"
+                }else{
+                    img = "noitenublada.png"
+                }
+            }else{
+                img = "chuva.svg"
+            }%>
+            <img src="imgs/<%=  img  %>" alt="logoimagem">
+            <h1><%= temperature_2m %>°C</h1>
+        
+        </div>
+        
+        <div class="information">
+            <p><%= time %></p>
+            <p><%= clima %></p>
+        </div>
+    </div>
+</body>
+</html>
