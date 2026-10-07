@@ -1,38 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/style.css">
     <title>Weather</title>
 </head>
+
 <body>
-    <div class="container">
-        <div class="logoAndTemp">
+    <main class="container">
+
+        <div class="weather-card">
+
             <%
-            let img
-            if (climaCodigo === 0 && isDay === 1) {
-                img = "sun.svg"
-            }else if(climaCodigo === 0 && isDay === 0){
-                img = "noite.svg"
-            }else if(climaCodigo === 1 || climaCodigo === 2 || climaCodigo === 3){
-                if(isDay===1){
-                    img = "nublado.svg"
-                }else{
-                    img = "noitenublada.png"
+                let img;
+
+                if (climaCodigo === 0 && isDay === 1) {
+                    img = "sun.svg";
+                } else if (climaCodigo === 0 && isDay === 0) {
+                    img = "noite.svg";
+                } else if ([1, 2, 3].includes(climaCodigo)) {
+                    img = isDay === 1 ? "nublado.svg" : "noitenublada.png";
+                } else {
+                    img = "chuva.svg";
                 }
-            }else{
-                img = "chuva.svg"
-            }%>
-            <img src="imgs/<%=  img  %>" alt="logoimagem">
-            <h1><%= temperature_2m %>°C</h1>
-        
+            %>
+
+            <div class="weather-main">
+                <img src="/imgs/<%= img %>" alt="Condição do tempo">
+
+                <div class="temperature">
+                    <h1><%= temperature_2m %>°</h1>
+                    <span>C</span>
+                </div>
+            </div>
+
+            <div class="weather-info">
+                <h2><%= clima %></h2>
+                <p><%= time %></p>
+            </div>
+
         </div>
-        
-        <div class="information">
-            <p><%= time %></p>
-            <p><%= clima %></p>
-        </div>
-    </div>
+
+    </main>
 </body>
 </html>
